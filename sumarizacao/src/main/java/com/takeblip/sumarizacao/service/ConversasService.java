@@ -1,14 +1,25 @@
 package com.takeblip.sumarizacao.service;
 
 import com.takeblip.sumarizacao.model.Conversas;
+import com.takeblip.sumarizacao.model.dto.ConversasDtoResponse;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ConversasService {
-    public List<Conversas> buscarTodos();
+    //CRUD
+    List<Conversas> buscarTodos();
 
-    public Conversas buscarPorCodigo(String codigo);
+    List<Conversas> findByStatus(String status);
 
-    public List<Conversas> salvarDados(List<Conversas> conversas);
+    List<Conversas> salvarDados(List<Conversas> conversas);
+
+    Conversas alterarConversaPorId(String id, Map<String, Object> camposAtualizados);
+
+    void deletarConversaPorId(String id);
+
+    //Insights
+    List<ConversasDtoResponse> contagemDeOcorrencias();
+
 
 }

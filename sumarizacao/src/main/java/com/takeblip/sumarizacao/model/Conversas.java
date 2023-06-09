@@ -24,4 +24,9 @@ public class Conversas implements Serializable {
     private String status;
 
     private String mensagem;
+
+    public String getStatus() {
+        return status;
+    }
+
 }
