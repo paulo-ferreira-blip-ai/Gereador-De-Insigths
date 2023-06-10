@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "c54c5fa5-7a59-4660-b2c6-62f1a11e19d4",
+		"name": "CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27866584"
+	},
+	"item": [
+		{
+			"name": "BuscarTodasAsMensagens",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarPorStatus",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarConversa",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n\r\n    \"data\": \"\",\r\n    \"status\":\"\",\r\n    \"mensagem\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/takeblip/alterar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"takeblip",
+						"alterar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Adicionar",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
