@@ -11,6 +11,13 @@ services:
       - backend-network
     restart: always
 
+  gerador-insights:
+    image: paulorenan/gerador-insights:latest
+    ports:
+      - 8080:8080
+    networks:
+      - backend-network
+
 volumes:
   mongodb_data:
 

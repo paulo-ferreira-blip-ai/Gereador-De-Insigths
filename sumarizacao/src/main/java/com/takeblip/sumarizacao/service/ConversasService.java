@@ -10,7 +10,7 @@ public interface ConversasService {
     //CRUD
     List<Conversas> buscarTodos();
 
-    List<Conversas> findByStatus(String status);
+    List<Conversas> buscarPorStatus(String status);
 
     List<Conversas> salvarDados(List<Conversas> conversas);
 
@@ -19,7 +19,9 @@ public interface ConversasService {
     void deletarConversaPorId(String id);
 
     //Insights
-    List<ConversasDtoResponse> contagemDeOcorrencias();
+    List<ConversasDtoResponse> contagemDeOcorrenciasService();
+
+    Map<String, Object> analiseDeSentimentosService();
 
 
 }

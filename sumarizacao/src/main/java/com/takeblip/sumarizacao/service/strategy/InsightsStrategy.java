@@ -8,7 +8,6 @@ import java.util.Map;
 public interface InsightsStrategy {
     Map<String, Integer> contagemDeOcorrencias(List<Conversas> conversas);
 
-    double analiseDeSentimentos(List<String[]> data);
+    double analiseDeSentimentosStrategy(List<String[]> data);
 
-    Map<String, Integer> identificarPalavrasChaves(List<String[]> data);
 }

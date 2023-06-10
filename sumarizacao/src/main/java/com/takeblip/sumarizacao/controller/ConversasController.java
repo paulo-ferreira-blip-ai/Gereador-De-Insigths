@@ -1,12 +1,13 @@
 package com.takeblip.sumarizacao.controller;
 
-import com.takeblip.sumarizacao.configurations.ConversaNotFoundException;
+import com.takeblip.sumarizacao.exceptions.ConversaNotFoundException;
 import com.takeblip.sumarizacao.model.Conversas;
 import com.takeblip.sumarizacao.model.dto.ConversasDtoResponse;
 import com.takeblip.sumarizacao.service.impl.ConversasServiceImpl;
 import com.takeblip.sumarizacao.service.strategy.LerArquivoCSV;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,22 +28,27 @@ import java.util.Map;
 @RequestMapping(path = "/takeblip")
 @Tag(name = "CRUD & Insights", description = "Endpoints")
 public class ConversasController {
+
     @Autowired
     private ConversasServiceImpl conversasService;
 
     @Autowired
     private LerArquivoCSV lerArquivoCSV;
-    //CRUDs
 
+    //CRUDs
     @GetMapping
     public ResponseEntity<List<Conversas>> buscarTodos() {
-        return ResponseEntity.ok(conversasService.buscarTodos());
+        try {
+            return ResponseEntity.ok(conversasService.buscarTodos());
+        } catch (ConversaNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping(path = "/conversas/{status}")
     public ResponseEntity<List<Conversas>> buscarPorStatus(@PathVariable String status) {
         try {
-            return ResponseEntity.ok(conversasService.findByStatus(status));
+            return ResponseEntity.ok(conversasService.buscarPorStatus(status));
         } catch (ConversaNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
@@ -50,14 +56,20 @@ public class ConversasController {
 
 
     @PostMapping(path = "/carregar-arquivo-csv")
-    public void carregarArquivo(@RequestParam("file") MultipartFile file) throws IOException {
-        List<Conversas> dados = lerArquivoCSV.lerArquivoCSV(file);
-        ResponseEntity.ok(conversasService.salvarDados(dados));
+    public ResponseEntity<Void> carregarArquivo(@RequestParam("file") MultipartFile file) throws IOException {
+        try {
+            List<Conversas> dados = lerArquivoCSV.lerArquivoCSV(file);
+            conversasService.salvarDados(dados);
+            return ResponseEntity.ok().build();
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
 
     @PatchMapping("/conversas/{id}")
     public ResponseEntity<Conversas> atualizarConversaPorId(@PathVariable String id, @RequestBody Map<String, Object> camposAtualizados) {
+
         try {
             Conversas conversaAtualizada = conversasService.alterarConversaPorId(id, camposAtualizados);
             return ResponseEntity.ok(conversaAtualizada);
@@ -79,8 +91,19 @@ public class ConversasController {
     //Insights
     @GetMapping(path = "/contagem-ocorrencias")
     public ResponseEntity<List<ConversasDtoResponse>> contagemDeOcorrencias() {
-        return ResponseEntity.ok(conversasService.contagemDeOcorrencias());
+
+        return ResponseEntity.ok(conversasService.contagemDeOcorrenciasService());
     }
 
+    @GetMapping(path = "/analiseSentimento")
+    public ResponseEntity<Map<String, Object>> obterAnaliseSentimentos() {
+
+        try {
+            Map<String, Object> resultado = conversasService.analiseDeSentimentosService();
+            return ResponseEntity.ok(resultado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
 }
