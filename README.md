@@ -101,6 +101,10 @@ Para utilizar a API do projeto Gerador de Insights, siga os passos abaixo para c
 - Abra o software de testes de API (como o Postman) e importe a collection baixada. Isso importará todas as requisições pré-configuradas para facilitar o uso da API.
 
 # Passo 4: Adicione o arquivo CSV através do endpoint
+
+* Obs: Para que a analise de sentimentos seja feita de forma mais precisa é preferivel que as mensagens a serem analisadas estejam na lingua inglesa. A biblioteca Stanford CoreNLP ainda não possui suporte para o português.
+* Obs: Disponibilizei no diretório "ArquivosCSVParaTeste" alguns arquivos, um com mensagens de tom neutro, outro com tom negativo e outro com tom positivo. Caso queira testar suas proprias mensagens, construa um arquivo CSV com a mesma estrutura que há nos testes, para que a API consiga ler e atribuir os dados aos campos corretos.
+
 - Com a aplicação em execução, abra o software de testes de API (Postman).
 - Selecione a requisição "carregar-arquivo-csv" na collection importada.
 - Selecione o método "POST" e o endpoint correspondente ao upload do arquivo CSV.
@@ -119,4 +123,4 @@ Estou animado com o que aprendi ao longo do processo e como pude aplicar esses c
 
 # Outras Informações
 
-**Swagger**: http://localhost:8080/swagger-ui/index.html
+**Swagger**: http://localhost:8082/swagger-ui/index.html
