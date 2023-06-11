@@ -45,6 +45,9 @@ public class ConversasServiceImpl implements ConversasService {
 
         var result = conversasRepository.findAll();
 
+        if (result.isEmpty()){
+            throw new ConversaNotFoundException("Conversas não encontradas");
+        }
         LOGGER.log(Level.INFO, LogEnum.INFO_FIM_BUSCAR_TODOS.toString() + " Resultados: {0}", result);
 
         return result;

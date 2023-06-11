@@ -3,7 +3,7 @@ package com.takeblip.sumarizacao.controller;
 import com.takeblip.sumarizacao.exceptions.ConversaNotFoundException;
 import com.takeblip.sumarizacao.model.Conversas;
 import com.takeblip.sumarizacao.model.dto.ConversasDtoResponse;
-import com.takeblip.sumarizacao.service.impl.ConversasServiceImpl;
+import com.takeblip.sumarizacao.service.ConversasService;
 import com.takeblip.sumarizacao.service.strategy.LerArquivoCSV;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import java.util.Map;
 public class ConversasController {
 
     @Autowired
-    private ConversasServiceImpl conversasService;
+    private ConversasService conversasService;
 
     @Autowired
     private LerArquivoCSV lerArquivoCSV;

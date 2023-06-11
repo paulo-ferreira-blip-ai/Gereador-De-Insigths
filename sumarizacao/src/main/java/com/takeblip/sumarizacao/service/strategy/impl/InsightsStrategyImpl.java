@@ -4,13 +4,11 @@ import com.takeblip.sumarizacao.enums.DescricaoSentimento;
 import com.takeblip.sumarizacao.enums.LogEnum;
 import com.takeblip.sumarizacao.model.Conversas;
 import com.takeblip.sumarizacao.service.strategy.InsightsStrategy;
-import com.takeblip.sumarizacao.service.strategy.LerArquivoCSV;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -23,9 +21,6 @@ import java.util.logging.Logger;
 public class InsightsStrategyImpl implements InsightsStrategy {
 
     private static final Logger LOGGER = Logger.getLogger(InsightsStrategyImpl.class.getName());
-
-    @Autowired
-    private LerArquivoCSV lerArquivoCSV;
 
 
     //Contagem de ocorrências: É possível contar a quantidade de ocorrências de cada status (Pendente, Respondido,
@@ -40,6 +35,12 @@ public class InsightsStrategyImpl implements InsightsStrategy {
         for (Conversas conversa : conversas) {
             String status = conversa.getStatus();
             LOGGER.log(Level.INFO, "Processando conversa com status: {0}", status);
+
+
+            if (status == null || status.isEmpty()) {
+                continue; // Aqui pulamos a iteração atual e vai para a próxima conversa se o campos status estiver vazio ou nulo
+            }
+
 
             //Aqui estamos verificando cada Objeto da lista de conversas enviada, percorremos cada status
             //verificamos se ele existe, se existir, atribuimos mais um na contagem para esse status
@@ -64,6 +65,12 @@ public class InsightsStrategyImpl implements InsightsStrategy {
     @Override
     public double analiseDeSentimentosStrategy(List<String[]> data) {
         LOGGER.log(Level.INFO, LogEnum.INFO_INICIO_ANALISE_DE_SENTIMENTOS_STRATEGY.toString());
+
+        if (data == null || data.isEmpty()) {
+            //estou usando logger pois uma exception
+            LOGGER.log(Level.WARNING, "Lista de dados vazia ou nula. Não é possível realizar a análise de sentimentos.");
+            return 0.0; // Ou qualquer valor padrão que você queira retornar nesses casos
+        }
 
         //Aqui a classe StanfordCoreNLP esta usando o metodo new StanfordCoreNLP para buscar os arquivos
         //que fazem as analises das mensagens, esses arquivos se encontram no pacote resource, o método faz referencia

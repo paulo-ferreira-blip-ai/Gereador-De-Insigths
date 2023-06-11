@@ -1,8 +1,6 @@
 package com.takeblip.sumarizacao.enums;
 
 public enum LogEnum {
-    INFO_INICIO_CONTAGEM_DE_OCORRENCIAS("Iniciando contagemDeOcorrencias..."),
-    INFO_FIM_CONTAGEM_DE_OCORRENCIAS("ContagemDeOcorrencias concluída."),
     INFO_INICIO_ANALISE_DE_SENTIMENTOS_STRATEGY("Iniciando análiseDeSentimentosStrategy..."),
     INFO_FIM_ANALISE_DE_SENTIMENTOS_STRATEGY("AnáliseDeSentimentosStrategy concluída."),
     INFO_INICIO_BUSCAR_TODOS("Iniciando buscarTodos..."),
