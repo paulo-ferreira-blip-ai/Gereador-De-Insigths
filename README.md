@@ -35,7 +35,7 @@ O conjunto de dados consiste em um arquivo CSV (Comma Separated Values), contend
 - Visualização de Dados
 
 # Tecnologias Utilizadas
-- Java 11
+- Java 17
 - Spring Boot 3
 - StanfordCoreNLP
 - Docker
