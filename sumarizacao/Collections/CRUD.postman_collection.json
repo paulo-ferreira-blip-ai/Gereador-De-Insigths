@@ -37,11 +37,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/takeblip/alterar",
+					"raw": "localhost:8082/takeblip/alterar",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8082",
 					"path": [
 						"takeblip",
 						"alterar"

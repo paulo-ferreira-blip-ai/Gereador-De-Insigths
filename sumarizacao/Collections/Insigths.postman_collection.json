@@ -20,11 +20,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/takeblip/analiseNlp",
+					"raw": "localhost:8082/takeblip/analiseNlp",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8082",
 					"path": [
 						"takeblip",
 						"analiseNlp"

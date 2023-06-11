@@ -36,7 +36,7 @@ public class ConversasController {
     private LerArquivoCSV lerArquivoCSV;
 
     //CRUDs
-    @GetMapping
+    @GetMapping(path = ("/buscarTodos"))
     public ResponseEntity<List<Conversas>> buscarTodos() {
         try {
             return ResponseEntity.ok(conversasService.buscarTodos());
@@ -45,7 +45,7 @@ public class ConversasController {
         }
     }
 
-    @GetMapping(path = "/conversas/{status}")
+    @GetMapping(path = "/buscarPorStatus/{status}")
     public ResponseEntity<List<Conversas>> buscarPorStatus(@PathVariable String status) {
         try {
             return ResponseEntity.ok(conversasService.buscarPorStatus(status));
@@ -67,7 +67,7 @@ public class ConversasController {
     }
 
 
-    @PatchMapping("/conversas/{id}")
+    @PatchMapping("/atualizarConversaPorId/{id}")
     public ResponseEntity<Conversas> atualizarConversaPorId(@PathVariable String id, @RequestBody Map<String, Object> camposAtualizados) {
 
         try {
@@ -78,7 +78,7 @@ public class ConversasController {
         }
     }
 
-    @DeleteMapping("/conversas/{id}")
+    @DeleteMapping("/deletarConversaPorId/{id}")
     public ResponseEntity<Void> deletarConversaPorId(@PathVariable String id) {
         try {
             conversasService.deletarConversaPorId(id);
