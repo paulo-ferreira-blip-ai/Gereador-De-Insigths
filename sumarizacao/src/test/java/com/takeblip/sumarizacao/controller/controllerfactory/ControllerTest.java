@@ -81,7 +81,6 @@ public class ControllerTest {
         MockMultipartFile multipartFile = new MockMultipartFile("file", "arquivo.csv", "text/csv", content);
         ResponseEntity<Void> response = conversasController.carregarArquivo(multipartFile);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        // Realize outras verificações específicas para o cenário de arquivo válido
     }
 
 
