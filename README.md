@@ -56,7 +56,7 @@ A API foi desenvolvida com base no paradigma de programação orientada a objeto
 O Spring é um framework de desenvolvimento Java amplamente utilizado. Ele oferece recursos como injeção de dependência, controle transacional, criação de API RESTful e suporte a testes unitários.
 
 - StanfordCoreNLP:
-Essa biblioteca foi utilizada para realizar a análise de sentimentos das mensagens das conversas. Ela fornece ferramentas de processamento de linguagem natural para extrair informações semânticas e sintáticas.
+Essa biblioteca foi utilizada para realizar a análise de sentimentos das mensagens das conversas. Ela fornece ferramentas de processamento de linguagem natural para extrair informações semânticas e sintáticas. Saiba mais: https://stanfordnlp.github.io/CoreNLP/
 
 # Classes Enums:
 - Foram utilizadas classes enums para representar conceitos fixos no projeto, como os status das conversas. Essas classes enums permitem definir um conjunto de valores pré-determinados e fornecer uma forma consistente de representação desses valores ao longo do código.
