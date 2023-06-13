@@ -24,7 +24,7 @@ O conjunto de dados consiste em um arquivo CSV (Comma Separated Values), contend
 
 - contagemDeOcorrencias(): Esse método de contagem de ocorrências é usado para fornecer informações sobre a distribuição dos diferentes status das conversas. Esse método permite visualizar a quantidade de conversas em cada status, oferecendo insights sobre o andamento da operação de atendimento.
 
-* Além dos métodos CRUD(Criar, atualizar, buscar e deletar). 
+* Além dos métodos CRUD(Criar, atualizar, buscar e deletar).
 
 # Funcionalidades
 - Análise de Sentimentos
@@ -53,10 +53,10 @@ A API foi desenvolvida com base no paradigma de programação orientada a objeto
 #  Bibliotecas e Frameworks:
 
 - Spring Framework:
-O Spring é um framework de desenvolvimento Java amplamente utilizado. Ele oferece recursos como injeção de dependência, controle transacional, criação de API RESTful e suporte a testes unitários.
+  O Spring é um framework de desenvolvimento Java amplamente utilizado. Ele oferece recursos como injeção de dependência, controle transacional, criação de API RESTful e suporte a testes unitários.
 
 - StanfordCoreNLP:
-Essa biblioteca foi utilizada para realizar a análise de sentimentos das mensagens das conversas. Ela fornece ferramentas de processamento de linguagem natural para extrair informações semânticas e sintáticas. Saiba mais: https://stanfordnlp.github.io/CoreNLP/
+  Essa biblioteca foi utilizada para realizar a análise de sentimentos das mensagens das conversas. Ela fornece ferramentas de processamento de linguagem natural para extrair informações semânticas e sintáticas.
 
 # Classes Enums:
 - Foram utilizadas classes enums para representar conceitos fixos no projeto, como os status das conversas. Essas classes enums permitem definir um conjunto de valores pré-determinados e fornecer uma forma consistente de representação desses valores ao longo do código.
@@ -73,7 +73,7 @@ Essa biblioteca foi utilizada para realizar a análise de sentimentos das mensag
 #  Logs:
 - Através dos logs, é possível rastrear o fluxo de execução da aplicação e identificar possíveis problemas ou erros. Os logs também fornecem informações úteis para o monitoramento do sistema em produção.
 
-- Entre outros pontos da estrutura como pacote Strategy, orientação a interfaces e não a implementações. Tentei deixar a API o maximo possivel reutilizavel e de manutenção fácil. 
+- Entre outros pontos da estrutura como pacote Strategy, orientação a interfaces e não a implementações. Tentei deixar a API o maximo possivel reutilizavel e de manutenção fácil.
 
 # Configuração do Ambiente de Desenvolvimento
 Para utilizar a API do projeto Gerador de Insights, siga os passos abaixo para configurar o ambiente corretamente:
@@ -88,22 +88,22 @@ Para utilizar a API do projeto Gerador de Insights, siga os passos abaixo para c
 - Navegue até o diretório onde você deseja clonar o repositório.
 
 - Execute o seguinte comando para clonar o repositório:
- ( git clone https://github.com/pauloren7/Gereador-De-Insigths.git )
- 
+  ( git clone https://github.com/pauloren7/Gereador-De-Insigths.git )
+
 # Passo 2: Inicialize a aplicação com Docker Compose
-- Navegue até o diretório do projeto clonado: 
-( cd gerador-de-insights )
+- Navegue até o diretório do projeto clonado:
+  ( cd gerador-de-insights )
 - Execute o seguinte comando para construir e iniciar os contêineres Docker:
-( docker-compose up ) Aguarde enquanto o Docker Compose baixa as imagens e configura o ambiente.
+  ( docker-compose up ) Aguarde enquanto o Docker Compose baixa as imagens e configura o ambiente.
 
 # Passo 3: Importe as collections no software de testes de API
-- As Collections para o Postman se encontram no diretorio do projeto, você pode fazer a importação direto para o Postman após fazer o clone do projeto na sua maquina ou procurar no seguinte link: [collections-insights-api.postman_collection.json](https://github.com/pauloren7/Desafio-TakeBlip/tree/main/sumarizacao/Collections)
+- As Collections para o Postman se encontram no diretorio do projeto, você pode fazer a importação direto para o Postman após fazer o clone do projeto na sua maquina ou procurar no seguinte link: https://github.com/pauloren7/Gereador-De-Insigths/tree/main/sumarizacao/Collections
 - Abra o software de testes de API (como o Postman) e importe a collection baixada. Isso importará todas as requisições pré-configuradas para facilitar o uso da API.
 
 # Passo 4: Adicione o arquivo CSV através do endpoint
 
 * Obs: Para que a analise de sentimentos seja feita de forma mais precisa é preferivel que as mensagens a serem analisadas estejam na lingua inglesa. A biblioteca Stanford CoreNLP ainda não possui suporte para o português.
-* Obs: Disponibilizei no diretório "ArquivosCSVParaTeste" alguns arquivos, um com mensagens de tom neutro, outro com tom negativo e outro com tom positivo. Caso queira testar suas proprias mensagens, construa um arquivo CSV com a mesma estrutura que há nos testes, para que a API consiga ler e atribuir os dados aos campos corretos.
+* Obs: Disponibilizei no diretório "ArquivosCSVParaTeste" link: https://github.com/pauloren7/Gereador-De-Insigths/tree/main/sumarizacao/ArquivosCSVParaTeste, alguns arquivos como mensagens de tom neutro, tom negativo e outro com tom positivo. Caso queira testar suas proprias mensagens, construa um arquivo CSV com a mesma estrutura que há nos testes, para que a API consiga ler e atribuir os dados aos campos corretos.
 
 - Com a aplicação em execução, abra o software de testes de API (Postman).
 - Selecione a requisição "carregar-arquivo-csv" na collection importada.
