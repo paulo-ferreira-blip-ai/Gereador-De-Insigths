@@ -88,7 +88,7 @@ Para utilizar a API do projeto Gerador de Insights, siga os passos abaixo para c
 - Navegue até o diretório onde você deseja clonar o repositório.
 
 - Execute o seguinte comando para clonar o repositório:
- ( git clone https://github.com/pauloren7/Desafio-TakeBlip )
+ ( git clone https://github.com/pauloren7/Gereador-De-Insigths.git )
  
 # Passo 2: Inicialize a aplicação com Docker Compose
 - Navegue até o diretório do projeto clonado: 
